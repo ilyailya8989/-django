@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Category List{% endblock %}
+
+{% block content %}
+<div>
+    <p>добавление категорий</p>
+    <form action="{% url 'osnova_add' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="product_name">
+        <button>save</button>
+    </form>
+</div>
+
+<div>
+    <p>список категории</p>
+    {% for post in data %}
+    <div>
+        <a href="{% url 'info_category' info_id=post.id %}">
+            {{ post.id }} -> {{ post.name }}
+        </a>
+        <a href="{% url 'osnova_del' info_id=post.id %}">Удалить</a>
+        <a href="{% url 'change_category_page' category_id=post.id %}">Изменить</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

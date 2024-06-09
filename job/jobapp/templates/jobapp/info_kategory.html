@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Post Information{% endblock %}
+
+{% block content %}
+<h1>ИНФОРМАЦИЯ О ПОСТЕ</h1>
+<div>
+    {% for i in info %}
+    <div>
+        <p>{{ i.id }}. {{ i.title }}</p>
+        <p>{{ i.content }}</p>
+        <p>{{ i.description }}</p>
+        <p>{{ i.published_date }}</p>
+        <p>{{ i.categoryInPost }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
